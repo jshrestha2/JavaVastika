@@ -1,15 +1,14 @@
 package com.vastika.project_jdbc_demo.usingst;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.vastika.project_jdbc_demo.util.DBUtility;
 
-public class Select {
-	public static final String SQL = "select* from java_student";
-	 
+public class InsertVal {
+	public static final String SQL = "insert into java_student(name)values('jess')";
+
 	public static void main(String[] args) {
 		
 		try (
@@ -17,17 +16,15 @@ public class Select {
 				Statement st = con.createStatement();
 				
 				
-				)
-		//with select statement this is where we make the changes
-		{
-		ResultSet rs =	st.executeQuery(SQL);
-		
-		while(rs.next()) {
-			System.out.println(rs.getString("name"));
-		}
+				){
+			st.executeUpdate(SQL);
+			System.out.println("value given");
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 		}
-}
+		
+	}
+
+
